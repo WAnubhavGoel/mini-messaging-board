@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('head', {title})%>
+    <body>
+        <%- include('header') %>
+
+        <div class="content">
+            <%- include('partials/errors') %>
+            <form class="new-message-form" method="POST" action="/new">
+                <div class="form-row">
+                    <label for="username">User*</label>
+                    <input id="username" type="text" name="username" value="<%= locals.data?.username %>" required />
+                </div>
+                <div class="form-row">
+                    <label for="message">Message*</label>
+                    <textarea name="message" id="message" required><%= locals.data?.message %></textarea>
+                </div>
+                <div class="button-container">
+                    <a class="back" href="/" >Back</a>
+                    <button class="form-row" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+            
+        <%- include('footer') %>
+    </body>
+</html>
